@@ -1,2 +1,2 @@
 # DSA-Using-Apex
-Repository to store algorithm logic build using Apex Language
+A repository to build algorithm logic using Apex Language
