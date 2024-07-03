@@ -19,17 +19,71 @@ public with sharing class FindMinimumandMaximumElement {
     //Below method is to find the maximum and minumum element on a sorted array of decimal numbers. 
     //but we don't know the order of sort. It can be either ascending or descending.
     
-    /*
-    Logic:
-    As the array is already sorted. 
-    We will only need to find the sorting order of the array
-    Later we can return First as minimum and last as maximum if ascending
-    Or vice versa for descending. 
+    
+    //Liner Comparision Method. The best possible O(n) method.
+    
+    //[3,1,5,-3,5,12,2]  
+    public static Map <String,Decimal> getMinMaxElement(List<Integer> arrayOfInt){
 
-    */
+        //WE CAN MAKE A SET FROM ARRAY TO GET ONLY UNIQUE VALUES
 
 
+        Integer lengthOfArray = arrayOfInt.size();
+        Integer maxElement;
+        Integer minElement;
+        
+        Map <String,Decimal> mapOfResult = new Map<String,Decimal>(); //this is map to return the maximum and minimum value
+        if(lengthOfArray == 1){
+            //if one element then why waste time
+            mapOfResult.put('Min', arrayOfInt[0] );
+            mapOfResult.put('Max', arrayOfInt[0] );
+            return mapOfResult;
+        }else if(lengthOfArray > 1){
+            //there are atleast two elements
+            //intialize max and min
+            if(arrayOfInt[0] > arrayOfInt[1]){
+                maxElement = arrayOfInt[0];
+                minElement = arrayOfInt[1];
+            }else if (arrayOfInt[0] < arrayOfInt[1]){
+                maxElement = arrayOfInt[01];
+                minElement = arrayOfInt[0];
+            }
+
+            //now the remaining in loop
+            for(Integer i = 2 ; i < lengthOfArray ; i++){
+
+                if(arrayOfInt[i] > maxElement){
+                    maxElement = arrayOfInt[i];
+                }else if(arrayOfInt[i] < minElement){
+                    minElement = arrayOfInt[i];
+                }
+
+            }
+
+            
+            mapOfResult.put('Min', minElement );
+            mapOfResult.put('Max', maxElement );
+
+            return mapOfResult;
+        }else if(lengthOfArray == 0){
+            return null;
+        }else{
+            return null;
+        }
+
+         
+    }
+   
+   
     public static Map <String,Decimal> mainMethodSortedArray( List<Decimal> sortedArray){ 
+         /*
+        Logic:
+        As the array is already sorted. 
+        We will only need to find the sorting order of the array
+        Later we can return First as minimum and last as maximum if ascending
+        Or vice versa for descending. 
+
+        */
 
         Map <String,Decimal> mapOfResult = new Map<String,Decimal>(); //this is map to return the maximum and minimum value
 
@@ -91,10 +145,6 @@ public with sharing class FindMinimumandMaximumElement {
             return null; //the user has passed null on argument //you may pass some infromation using wrapper classes as return data
         }
         
-        //End
-
-
-
-        
+        //End   
     }
 }
